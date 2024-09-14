@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Verification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        input {
+            display: block;
+            margin-bottom: 10px;
+            padding: 8px;
+            width: 100%;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Enter your details</h2>
+        <form id="studentForm" onsubmit="return verifyStudent()">
+            <label for="rollNo">Roll Number</label>
+            <input type="text" id="rollNo" required>
+
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        function verifyStudent() {
+            const rollNo = document.getElementById('rollNo').value;
+            const dob = document.getElementById('dob').value;
+
+            const validRollNo = '2100301530100';
+            const validDob = '2002-08-19';  // Note: The format is YYYY-MM-DD
+
+            if (rollNo === validRollNo && dob === validDob) {
+                // Redirect to the new page to display the image
+                window.location.href = 'image.html';
+            } else {
+                alert('Invalid roll number or date of birth');
+            }
+
+            return false; // Prevent form submission
+        }
+    </script>
+
+</body>
+</html>
